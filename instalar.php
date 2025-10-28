@@ -6,8 +6,10 @@ if($conexao->connect_error)
     echo "Conexão Falhou: ".$conexao->connect_error;
 }
 $conexao->query("DROP DATABASE AulaSW");
+
 $create_database = "CREATE DATABASE IF NOT EXISTS AulaSW";
 $conexao->query($create_database);
+
 $conexao->query("USE AulaSW");
 
 $tabela_clientes = "CREATE TABLE CLIENTES(
@@ -66,3 +68,14 @@ if ($conexao->query($tabela_atendente_horario)===true)
     echo "Tabela Atendente x Horario Instalada com sucesso<Br>"; 
 }else{ echo $conexao->error;};
 
+$conexao->query(
+"INSERT INTO CLIENTES (NOME, TELEFONE) VALUES
+('FERNANDO GRACIANO', '16991340447'),
+('MARK HARDWARE', '1496585474'),
+('MAXWELL LINDAO', '1485963256'),
+('MARIA LOIRA', '1499996325'),
+('MARIA MATOS', '1488774455'),
+('PIETRO RODRIGUES', '1496587452'),
+('LACERDA DUTRA', '1499663322'),
+('SAMUEL JACKSON', '1436884778');
+");
